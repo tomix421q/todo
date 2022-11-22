@@ -15,33 +15,51 @@ const io = socket(server)
 
 
 // PLAYERS BOX ARRAY 
-var words = [];
-
+let words = [];
+let playerName = [];
 
 // SOCKET WORK 
 io.on('connection', (socket) => {
+    socket.on('userlogin', (name, room) => {
+        name === socket.id
+        playerName.push(name)
 
+        if (room === '') {
 
-    console.log('a user connected');
+            io.emit('word', `Prosim zadaj room`);
+        } else {
+            socket.join(room);
+            // socket.to(room).emit('word', `Propojil si sa do room`)
+            io.emit('word', `Pripojil si sa do room`);
+        }
+        console.log(`${name} connected`);
+        io.emit('word', `${name} je pripojeny/a`)
 
-    socket.on('message', (message) => {
-        words.push(message);
+    })
 
+    socket.on('join-room', room => {
+        socket.join(room)
+    })
+
+    socket.on('word', (word) => {
+        words.push(word);
         if (words.length === 2) {
             if (words[0] === words[1]) {
+
+                io.emit('word', `${playerName} said ${words} CORRECT!!!`);
                 words.length = 0
-                io.emit('message', `${socket.id.substr(0,2)} said ${message} CORRECT!!!`);
-
-
             } else {
 
+                io.emit('word', `${playerName} said ${words} NOPE!!!`);
                 words.length = 0
-                io.emit('message', `${socket.id.substr(0,2)} said ${message} NOPE!!!`);
-
             }
-
         }
         console.log(words);
-        console.log(message);
+        // console.log(message);
     });
+
+
+
+
+
 });
