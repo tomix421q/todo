@@ -8,6 +8,7 @@
     <title>ToDo</title>
     <!-- <script defer src="https://cdn.socket.io/socket.io-3.0.0.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -17,14 +18,27 @@
     <ul>
 
     </ul>
+    <div class="login-form">
+        <label for="name-input">Meno</label>
+        <input type="text" id="name-input">
+        <label for="room-input">Room</label>
+        <input type="text" id="room-input">
+        <button type="button" id="room-button">Join</button>
+    </div>
 
-    <input placeholder="message">
-    <button id="send-word">Send</button>
 
-    <input type="text" id="room-input">
-    <button type="button" id="room-button">join</button>
+    <div class="game-form">
+        <input placeholder="message">
+        <button id="send-word">Send</button>
 
-    <input type="text" id="name-input">
+    </div>
+
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const socket = require('socket.io');
 
+
 // APP SETUP 
 const app = express();
 
@@ -31,6 +32,8 @@ io.on('connection', (socket) => {
             socket.join(room);
             // socket.to(room).emit('word', `Propojil si sa do room`)
             io.emit('word', `Pripojil si sa do room`);
+            pristup = true
+            io.emit('pristup', pristup = true)
         }
         console.log(`${name} connected`);
         io.emit('word', `${name} je pripojeny/a`)

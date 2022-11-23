@@ -1,0 +1,54 @@
+html {
+    background: rgba(25, 23, 23, 0.952);
+}
+
+.game-form {
+    display: none;
+}
+
+.login-form {
+    display: block;
+    position: relative;
+    min-width: 220px;
+    width: 50%;
+    height: auto;
+    background: rgb(191, 116, 84);
+    margin: 100px auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 7px double #ffffff;
+}
+
+.login-form label {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.login-form input {
+    display: block;
+    margin: auto;
+    min-width: 200px;
+    width: 40%;
+    border-radius: 8px;
+    height: 30px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#room-button {
+    display: block;
+    margin: 20px auto;
+    width: 90px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    transition: ease-in-out 0.2s;
+}
+
+#room-button:hover {
+    background: rgba(87, 222, 72, 0.768);
+    font-size: 20px;
+}

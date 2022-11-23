@@ -1,11 +1,13 @@
 const socket = io.connect();
 // const socket = io('ws://localhost:3000');
 
-// HTML 
-const sendWordBtn = document.getElementById('send-word')
-const joinRoomButton = document.getElementById('room-button')
-const roomInput = document.getElementById('room-input')
-const nameInput = document.getElementById('name-input')
+// HTML
+const gameForm = document.querySelector('.game-form');
+const loginForm = document.querySelector('.login-form');
+const sendWordBtn = document.getElementById('send-word');
+const joinRoomButton = document.getElementById('room-button');
+const roomInput = document.getElementById('room-input');
+const nameInput = document.getElementById('name-input');
 
 
 
@@ -26,16 +28,24 @@ joinRoomButton.addEventListener('click', () => {
 
 
 
+socket.on('pristup', () => {
+    if (pristup = true) {
+        loginForm.style.display = "none";
+        gameForm.style.display = "block";
+    }
+})
 
 
 
 
-
-socket.on('word', text => {
+socket.on('word', (text) => {
 
     const el = document.createElement('li');
     el.innerHTML = text;
     document.querySelector('ul').appendChild(el)
+
+
+
 
 });
 
