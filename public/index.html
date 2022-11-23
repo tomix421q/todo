@@ -8,6 +8,9 @@
     <title>ToDo</title>
     <!-- <script defer src="https://cdn.socket.io/socket.io-3.0.0.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
 
@@ -28,8 +31,25 @@
 
 
     <div class="game-form">
-        <input placeholder="message">
-        <button id="send-word">Send</button>
+
+        <div class="chat-zone">
+            <ul class="chat-ul">
+                <li class="chat-li">
+                    skuska jeden dva tri djasoidjaosjdoajdoasjid
+                </li>
+            </ul>
+        </div>
+
+        <div class="send-zone">
+            <h4 class="send-timer">CAS:<span class="actual-time">30</span> </h4>
+            <button class="send-correct-btn" type="button">SPRAVNE</button>
+            <button class="send-newgame-btn" type="button">NOVA HRA</button>
+            <button send id="send-word-btn">POSLAT</button>
+            <input class="send-input" placeholder="Zadaj slovo">
+
+
+        </div>
+
 
     </div>
 

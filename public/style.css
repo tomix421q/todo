@@ -1,19 +1,23 @@
-html {
-    background: rgba(25, 23, 23, 0.952);
+body {
+    background-image: url("https://assets.codepen.io/47791/colorful-smoke.jpg");
 }
 
 .game-form {
-    display: none;
+    display: block;
 }
 
+
+/* LOGIN FORM  */
+
 .login-form {
-    display: block;
+    display: none;
     position: relative;
-    min-width: 220px;
-    width: 50%;
+    /* min-width: 220px; */
+    width: min(100% - 6.25rem, 31.25rem);
     height: auto;
     background: rgb(191, 116, 84);
     margin: 100px auto;
+    /* margin-inline: auto; */
     padding: 10px;
     border-radius: 10px;
     border: 7px double #ffffff;
@@ -51,4 +55,95 @@ html {
 #room-button:hover {
     background: rgba(87, 222, 72, 0.768);
     font-size: 20px;
+}
+
+
+/* CHAT ZONE  */
+
+.chat-zone {
+    position: relative;
+    color: aliceblue;
+    width: min(100% - 90px, 600px);
+    height: 21.875rem;
+    background: rgba(223, 194, 254, 0.35);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(223, 194, 254, 0.175);
+    margin: 1.875rem auto 10px auto;
+    border-radius: 15px;
+    font-size: 1.5625rem;
+    padding: 10px;
+    font-family: 'Patrick Hand', cursive;
+    overflow-y: auto;
+}
+
+.chat-zone ul {
+    margin: 0;
+    padding: 0 10px 0 10px;
+    list-style-type: none;
+}
+
+.chat-zone ul .chat-li {
+    color: black;
+    text-align: center;
+}
+
+
+/* SEND ZONE  */
+
+.send-zone {
+    position: relative;
+    color: aliceblue;
+    width: min(100% - 90px, 600px);
+    height: 200px;
+    background: rgba(223, 194, 254, 0.35);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(223, 194, 254, 0.175);
+    margin: 30px auto 10px auto;
+    border-radius: 15px;
+    font-size: 1.5625rem;
+    padding: 10px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.send-zone .send-timer {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0 auto;
+    margin: 0;
+    display: block;
+}
+
+.send-correct-btn {
+    /* margin: 0 auto;- */
+    width: min(100% - 160px, 150px);
+    float: left;
+    padding: 5px;
+    margin: 3px;
+}
+
+.send-newgame-btn {
+    width: min(100% - 160px, 150px);
+    float: right;
+    padding: 5px;
+    margin: 3px;
+}
+
+.send-input {
+    position: absolute;
+    display: block;
+    width: min(100% - 31px, 900px);
+    text-align: center;
+    top: 170px;
+    text-align: center;
+}
+
+#send-word-btn {
+    position: absolute;
+    top: 110px;
+    display: block;
+    width: min(100% - 25px, 900px);
+    text-align: center;
+    height: 50px;
 }

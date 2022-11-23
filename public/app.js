@@ -2,6 +2,7 @@ const socket = io.connect();
 // const socket = io('ws://localhost:3000');
 
 // HTML
+const chatUl = document.querySelector('.chat-ul');
 const gameForm = document.querySelector('.game-form');
 const loginForm = document.querySelector('.login-form');
 const sendWordBtn = document.getElementById('send-word');
@@ -28,8 +29,8 @@ joinRoomButton.addEventListener('click', () => {
 
 
 
-socket.on('pristup', () => {
-    if (pristup = true) {
+socket.on('full-access', () => {
+    if (access = true) {
         loginForm.style.display = "none";
         gameForm.style.display = "block";
     }
@@ -41,8 +42,9 @@ socket.on('pristup', () => {
 socket.on('word', (text) => {
 
     const el = document.createElement('li');
+    el.classList.add("chat-li");
     el.innerHTML = text;
-    document.querySelector('ul').appendChild(el)
+    chatUl.appendChild(el)
 
 
 
