@@ -25,23 +25,22 @@ const users = {}
 io.on("connection", (socket) => {
 
 
-    console.log("connected");
-    socket.on("login", (name) => {
+
+    socket.on("login", (name, roomName) => {
         console.log("login", name, socket.id);
-        socket.broadcast.emit("new-login", name);
-    });
-    socket.on("send-to", (params) => {
-        console.log("send-to", params);
-        socket.to(params.recipient).emit("public-message", {
-            message: params.message,
-            sender: socket.id,
-        });
-    });
-    socket.on("join-room", (roomName) => {
-        console.log("join", roomName);
+        socket.id === name
+        socket.to(roomName).emit("new-login", name);
         socket.join(roomName);
-        io.to(socket.id).emit("joined-room");
-        io.to(roomName).emit("public-message", `New user ${socket.id}`);
+        io.to(socket.id).emit('joined-room', name);
+        // io.to(roomName).emit("private-message", `hello ${name}`);
+    });
+
+
+    socket.on("send-to", (params) => {
+        socket.to(params.room).emit("private-message", {
+            message: params.message,
+            sender: params.name,
+        });
     });
 
 
