@@ -16,54 +16,55 @@ const io = socket(server)
 
 
 // PLAYERS BOX ARRAY 
-let words = [];
-let playerName = {};
 
-// SOCKET WORK 
-io.on('connection', (socket) => {
-    socket.on('userlogin', (name, room) => {
-        name === socket.id;
-        playerName = [name, room]
-        console.log(playerName)
-        if (room === '') {
+const rooms = {}
+const users = {}
+    // SOCKET WORK 
 
-            io.emit('word', `Prosim zadaj room`);
-        } else {
 
-            socket.join(room);
-            // socket.to(room).emit('word', `Propojil si sa do room`)
-            io.emit('word', `Pripojil si sa do room ${room}`);
-            pristup = true
-            io.emit('full-access', access = true)
-        }
-        console.log(`${name} connected`);
-        io.emit('word', `${name} je pripojeny/a`)
+io.on("connection", (socket) => {
 
-    })
 
-    socket.on('join-room', room => {
-        socket.join(room)
-    })
-
-    socket.on('word', (word) => {
-        words.push(word);
-        if (words.length === 2) {
-            if (words[0] === words[1]) {
-
-                io.emit('word', `${playerName} said ${words} CORRECT!!!`);
-                words.length = 0
-            } else {
-
-                io.emit('word', `${playerName} said ${words} NOPE!!!`);
-                words.length = 0
-            }
-        }
-        console.log(words);
-        // console.log(message);
+    console.log("connected");
+    socket.on("login", (name) => {
+        console.log("login", name, socket.id);
+        socket.broadcast.emit("new-login", name);
+    });
+    socket.on("send-to", (params) => {
+        console.log("send-to", params);
+        socket.to(params.recipient).emit("public-message", {
+            message: params.message,
+            sender: socket.id,
+        });
+    });
+    socket.on("join-room", (roomName) => {
+        console.log("join", roomName);
+        socket.join(roomName);
+        io.to(socket.id).emit("joined-room");
+        io.to(roomName).emit("public-message", `New user ${socket.id}`);
     });
 
 
-
-
-
 });
+
+
+
+
+
+
+
+
+// socket.on('userlogin', (name, room) => {
+//     socket.join(room)
+//     socket.id === name
+//     rooms[room] = name
+//     io.to(room).emit('access', room)
+
+//     console.log(rooms)
+
+
+// })
+
+// socket.on('send-chat-message', (room, message) => {
+//     socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
+// })
