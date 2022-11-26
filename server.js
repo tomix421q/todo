@@ -17,14 +17,14 @@ const io = socket(server)
 
 // PLAYERS BOX ARRAY 
 let words = [];
-let playerName = [];
+let playerName = {};
 
 // SOCKET WORK 
 io.on('connection', (socket) => {
     socket.on('userlogin', (name, room) => {
-        name === socket.id
-        playerName.push(name)
-
+        name === socket.id;
+        playerName = [name, room]
+        console.log(playerName)
         if (room === '') {
 
             io.emit('word', `Prosim zadaj room`);

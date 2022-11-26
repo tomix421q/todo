@@ -3,14 +3,14 @@ body {
 }
 
 .game-form {
-    display: block;
+    display: none;
 }
 
 
 /* LOGIN FORM  */
 
 .login-form {
-    display: none;
+    display: block;
     position: relative;
     /* min-width: 220px; */
     width: min(100% - 6.25rem, 31.25rem);
