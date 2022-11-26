@@ -3,6 +3,7 @@ const socket = io.connect('http://localhost:3000/');
 
 // HTML
 const chatUl = document.querySelector('.chat-ul');
+const chatZone = document.querySelector('.chat-zone');
 const gameForm = document.querySelector('.game-form');
 const loginForm = document.querySelector('.login-form');
 const sendWordBtn = document.querySelector('#send-word-btn');
@@ -46,7 +47,7 @@ socket.on("joined-room", (name) => {
 socket.on("private-message", (params) => {
     const el = document.createElement('li');
     el.classList.add("chat-li");
-    el.innerHTML = `Hrac ${params.sender} odpoveda: ${params.message}`
-        // el.innerHTML = params.message
+    el.innerHTML = `Hrac ${params.sender} odpoveda: ${params.message}`;
     chatUl.appendChild(el)
+
 });

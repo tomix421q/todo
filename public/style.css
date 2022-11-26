@@ -81,11 +81,13 @@ body {
     margin: 0;
     padding: 0 10px 0 10px;
     list-style-type: none;
+    /* transform: rotate(0.5turn); */
 }
 
 .chat-zone ul .chat-li {
     color: black;
     text-align: center;
+    /* transform: rotate(0.5turn); */
 }
 
 
