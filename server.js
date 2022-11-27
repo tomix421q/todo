@@ -28,8 +28,8 @@ io.on("connection", (socket) => {
 
     socket.on("login", (name, roomName) => {
         console.log("login", name, socket.id);
-        socket.id === name
-        socket.to(roomName).emit("new-login", name);
+        socket.id === name;
+        io.to(roomName).emit("new-login", name);
         socket.join(roomName);
         io.to(socket.id).emit('joined-room', name);
         // io.to(roomName).emit("private-message", `hello ${name}`);
@@ -37,9 +37,12 @@ io.on("connection", (socket) => {
 
 
     socket.on("send-to", (params) => {
+
         socket.to(params.room).emit("private-message", {
             message: params.message,
             sender: params.name,
+
+
         });
     });
 

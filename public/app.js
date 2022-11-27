@@ -14,12 +14,14 @@ const sendWordInput = document.querySelector('.send-input');
 
 
 
-joinRoomButton.addEventListener("click", () => {
+joinRoomButton.addEventListener("click", e => {
+
+
     socket.emit("login", nameInput.value, roomInput.value);
+
 });
 
 sendWordBtn.addEventListener("click", () => {
-    console.log("send to", nameInput.value, sendWordInput.value);
     socket.emit("send-to", {
         room: roomInput.value,
         message: sendWordInput.value,
@@ -27,27 +29,30 @@ sendWordBtn.addEventListener("click", () => {
     });
 });
 
-socket.on("new-login", (name) => {
-    const el = document.createElement('li');
-    el.classList.add("chat-li");
-    el.innerHTML = `${name} sa uspesne pripojil :)`;
-    chatUl.appendChild(el)
-});
 
+// CREATE NEW ROOM 
 socket.on("joined-room", (name) => {
-    console.log("successfully joined");
     loginForm.style.display = "none";
     gameForm.style.display = "block";
-    const el = document.createElement('li');
-    el.classList.add("chat-li");
-    el.innerHTML = `${name} sa uspesne pripojil :)`;
-    chatUl.appendChild(el)
+    writeText(`${name} sa uspesne pripojil :)`)
 });
 
+// CONNECT NEW PLAYER 
+socket.on("new-login", (name) => {
+    writeText(`${name} sa uspesne pripojil :)`)
+});
+
+// WRITE MESSAGE 
 socket.on("private-message", (params) => {
-    const el = document.createElement('li');
-    el.classList.add("chat-li");
-    el.innerHTML = `Hrac ${params.sender} odpoveda: ${params.message}`;
-    chatUl.appendChild(el)
+    writeText(`Hrac ${params.sender} odpoveda: ${params.message}`)
 
 });
+
+
+// FUNCTION MAKE LI & APPEND 
+function writeText(messageText) {
+    const el = document.createElement('li');
+    el.classList.add("chat-li");
+    el.innerHTML = messageText
+    chatUl.appendChild(el)
+}

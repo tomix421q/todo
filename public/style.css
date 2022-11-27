@@ -1,5 +1,6 @@
 body {
     background-image: url("https://assets.codepen.io/47791/colorful-smoke.jpg");
+    font-family: 'Patrick Hand', cursive;
 }
 
 .game-form {
@@ -12,21 +13,26 @@ body {
 .login-form {
     display: block;
     position: relative;
-    /* min-width: 220px; */
+    color: aliceblue;
     width: min(100% - 6.25rem, 31.25rem);
     height: auto;
-    background: rgb(191, 116, 84);
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.2px);
+    -webkit-backdrop-filter: blur(11.2px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     margin: 100px auto;
-    /* margin-inline: auto; */
     padding: 10px;
-    border-radius: 10px;
-    border: 7px double #ffffff;
+    border-radius: 20px;
 }
 
 .login-form label {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    font-size: 1.25rem;
 }
 
 .login-form input {
@@ -34,27 +40,53 @@ body {
     margin: auto;
     min-width: 200px;
     width: 40%;
-    border-radius: 8px;
-    height: 30px;
+    border-radius: 12px;
+    height: 40px;
     font-size: 25px;
     text-align: center;
 }
 
-#room-button {
-    display: block;
-    margin: 20px auto;
-    width: 90px;
-    height: 40px;
-    padding: 5px;
+
+/* CSS */
+
+.button-55 {
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
     cursor: pointer;
-    border-radius: 8px;
-    background: rgb(255, 255, 255);
-    transition: ease-in-out 0.2s;
+    display: block;
+    font-size: 1.5rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 20px auto;
 }
 
-#room-button:hover {
-    background: rgba(87, 222, 72, 0.768);
-    font-size: 20px;
+.button-55:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 4px, 0);
+}
+
+.button-55:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 
@@ -65,27 +97,50 @@ body {
     color: aliceblue;
     width: min(100% - 90px, 600px);
     height: 21.875rem;
-    background: rgba(223, 194, 254, 0.35);
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
-    border: 1px solid rgba(223, 194, 254, 0.175);
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.2px);
+    -webkit-backdrop-filter: blur(11.2px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     margin: 1.875rem auto 10px auto;
     border-radius: 15px;
     font-size: 1.5625rem;
     padding: 10px;
     font-family: 'Patrick Hand', cursive;
     overflow-y: auto;
+    transform: rotate(0.5turn);
+}
+
+.chat-zone::-webkit-scrollbar {
+    width: .2em;
+}
+
+.chat-zone::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.chat-zone::-webkit-scrollbar-thumb {
+    /* background-color: rgb(77, 49, 49); */
+    outline: .5px solid rgb(248, 248, 248);
+    background: rgba(62, 101, 136, 0.32);
+    border-radius: 19px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: .5px solid rgba(62, 101, 136, 0.3);
 }
 
 .chat-zone ul {
     margin: 0;
     padding: 0 10px 0 10px;
     list-style-type: none;
-    /* transform: rotate(0.5turn); */
+    transform: rotate(0.5turn);
 }
 
 .chat-zone ul .chat-li {
-    color: black;
+    color: aliceblue;
     text-align: center;
     /* transform: rotate(0.5turn); */
 }
@@ -98,10 +153,13 @@ body {
     color: aliceblue;
     width: min(100% - 90px, 600px);
     height: 200px;
-    background: rgba(223, 194, 254, 0.35);
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
-    border: 1px solid rgba(223, 194, 254, 0.175);
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.2px);
+    -webkit-backdrop-filter: blur(11.2px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     margin: 30px auto 10px auto;
     border-radius: 15px;
     font-size: 1.5625rem;
@@ -118,18 +176,22 @@ body {
 }
 
 .send-correct-btn {
-    /* margin: 0 auto;- */
+    position: absolute;
+    top: 19%;
     width: min(100% - 160px, 150px);
     float: left;
     padding: 5px;
-    margin: 3px;
+    /* margin: 3px; */
 }
 
 .send-newgame-btn {
-    width: min(100% - 160px, 150px);
+    position: absolute;
+    top: 18.9%;
+    right: 17px;
+    width: min(100% - 176px, 150px);
     float: right;
     padding: 5px;
-    margin: 3px;
+    /* margin: 3px; */
 }
 
 .send-input {
@@ -143,7 +205,7 @@ body {
 
 #send-word-btn {
     position: absolute;
-    top: 110px;
+    top: 5.3125rem;
     display: block;
     width: min(100% - 25px, 900px);
     text-align: center;
