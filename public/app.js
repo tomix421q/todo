@@ -11,14 +11,18 @@ const joinRoomButton = document.getElementById('room-button');
 const roomInput = document.getElementById('room-input');
 const nameInput = document.getElementById('name-input');
 const sendWordInput = document.querySelector('.send-input');
+const sendCorrectBtn = document.querySelector('.send-correct-btn')
 
-
+sendCorrectBtn.addEventListener('click', () => {
+    socket.emit('bothcorrect', {
+        correct: true,
+        name: nameInput.value
+    })
+    writeText(`Cakam na druheho hraca ci si mysli ze slova su rovnake`)
+})
 
 joinRoomButton.addEventListener("click", e => {
-
-
     socket.emit("login", nameInput.value, roomInput.value);
-
 });
 
 sendWordBtn.addEventListener("click", () => {
@@ -27,6 +31,9 @@ sendWordBtn.addEventListener("click", () => {
         message: sendWordInput.value,
         name: nameInput.value
     });
+    sendWordBtn.disabled = true
+    sendWordInput.disabled = true
+    writeText('Cakam na odpoved dalsieho hraca...')
 });
 
 
@@ -46,7 +53,15 @@ socket.on("new-login", (name) => {
 socket.on("private-message", (params) => {
     writeText(`Hrac ${params.sender} odpoveda: ${params.message}`)
 
+
 });
+
+// GAME MESSAGES 
+socket.on('result', (params) => {
+    writeText(params)
+    sendWordBtn.disabled = false;
+    sendWordInput.disabled = false;
+})
 
 
 // FUNCTION MAKE LI & APPEND 
