@@ -18,11 +18,11 @@ const io = socket(server)
 // PLAYERS BOX ARRAY 
 
 const rooms = {}
-
+const trueArray = []
+const users = []
+const words = [];
 // SOCKET WORK 
-var trueArray = []
-var users = []
-var words = []
+
 io.on("connection", (socket) => {
 
     socket.on("login", (name, roomName) => {
