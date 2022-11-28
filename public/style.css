@@ -8,6 +8,17 @@ body {
     display: none;
 }
 
+#preloader {
+    background: #191f26 url(./loader.gif) no-repeat center;
+    background-size: contain;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+}
+
 
 /* LOGIN FORM  */
 
@@ -16,7 +27,7 @@ body {
     left: 59%;
     top: 3.5%;
     cursor: pointer;
-    z-index: 99999;
+    z-index: 9;
 }
 
 .about-game:hover .hover-about-game {
