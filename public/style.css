@@ -52,7 +52,7 @@ body {
     position: relative;
     color: aliceblue;
     width: min(100% - 6.25rem, 31.25rem);
-    height: auto;
+    height: 100%;
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.21);
     border-radius: 16px;
