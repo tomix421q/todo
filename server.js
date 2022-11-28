@@ -25,8 +25,6 @@ var users = []
 var words = []
 io.on("connection", (socket) => {
 
-
-
     socket.on("login", (name, roomName) => {
         console.log("login", name, socket.id);
         socket.id === name;
@@ -43,8 +41,6 @@ io.on("connection", (socket) => {
         //     sender: params.name,
 
         // });
-
-
 
         var word = params.message
         var meno = params.name
