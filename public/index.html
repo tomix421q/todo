@@ -11,21 +11,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="glitch.css">
 
 </head>
 
 <body>
-
-    <ul>
-
-    </ul>
+    <div class="glitch-wrapper">
+        <div class="about-game">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="3em" width="3em" xmlns="http://www.w3.org/2000/svg"><path fill="#2196F3" d="M37,40H11l-6,6V12c0-3.3,2.7-6,6-6h26c3.3,0,6,2.7,6,6v22C43,37.3,40.3,40,37,40z"></path><g fill="#fff"><rect x="22" y="20" width="4" height="11"></rect><circle cx="24" cy="15" r="2"></circle></g></svg>
+            <span class="hover-about-game">Pravidla:hraju dvaja hraci a musia sa dopracovat k spolocnemu slovu je mozne hlasovat aj za podobne slovo ale musi s tym suhlasit aj druhy hrac :)</span>
+        </div>
+        <div class="glitch" data-glitch="ToDo">ToDo</div>
+    </div>
     <div class="login-form">
+
         <label for="name-input">Meno</label>
         <input spellcheck="false" type="text" id="name-input" autocomplete="off" placeholder="Zadaj meno">
+
+        <i class="info-name"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle fill="#2196F3" cx="24" cy="24" r="21"></circle><rect x="22" y="22" fill="#fff" width="4" height="11"></rect><circle fill="#fff" cx="24" cy="16.5" r="2.5"></circle></svg>
+        <span class="extra-info-name">Zadaj meno ktore budes pouzivat v hre...</span></i>
         <label for="room-input">Room</label>
         <input spellcheck="false" type="text" id="room-input" autocomplete="off" placeholder="Zadaj room">
+
+
+        <i class="info-room"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle fill="#2196F3" cx="24" cy="24" r="21"></circle><rect x="22" y="22" fill="#fff" width="4" height="11"></rect><circle fill="#fff" cx="24" cy="16.5" r="2.5"></circle></svg>
+        <span class="extra-info-room">Vytvor room ktoru zada aj druhy hrac s ktorym chces hrat...</span>
+        </i>
+
+
+
+
+
+
         <button class="button-55" type="button" id="room-button">Join</button>
     </div>
 
@@ -34,16 +56,14 @@
 
         <div class="chat-zone">
             <ul class="chat-ul">
-                <li class="chat-li">
-                    skuska jeden dva tri djasoidjaosjdoajdoasjid
-                </li>
+
             </ul>
         </div>
 
         <div class="send-zone">
             <h4 class="send-timer">CAS:<span class="actual-time">30</span> </h4>
             <button class="button-55 send-correct-btn" type="button">SPRAVNE</button>
-            <button class="button-55 send-newgame-btn" type="button">NOVA HRA</button>
+            <button onClick="window.location.reload()" class="button-55 send-newgame-btn" type="button">NOVA HRA</button>
             <button class="button-55" type="button" id="send-word-btn">POSLAT</button>
             <input class="send-input" placeholder="Zadaj slovo">
 

@@ -1,6 +1,7 @@
 body {
     background-image: url("https://assets.codepen.io/47791/colorful-smoke.jpg");
     font-family: 'Patrick Hand', cursive;
+    font-size: 100%;
 }
 
 .game-form {
@@ -9,6 +10,31 @@ body {
 
 
 /* LOGIN FORM  */
+
+.about-game {
+    position: absolute;
+    left: 59%;
+    top: 3.5%;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+.about-game:hover .hover-about-game {
+    display: block;
+}
+
+.hover-about-game {
+    position: absolute;
+    width: 300px;
+    display: none;
+    background: black;
+    color: red;
+    border-radius: 10px;
+    padding: 5px;
+    left: -365%;
+    top: 83%;
+    border: 1px solid #2196F3;
+}
 
 .login-form {
     display: block;
@@ -23,7 +49,7 @@ body {
     backdrop-filter: blur(11.2px);
     -webkit-backdrop-filter: blur(11.2px);
     border: 1px solid rgba(255, 255, 255, 0.07);
-    margin: 100px auto;
+    margin: 10px auto 220px auto;
     padding: 10px;
     border-radius: 20px;
 }
@@ -46,8 +72,52 @@ body {
     text-align: center;
 }
 
+.info-name {
+    position: absolute;
+    left: 71%;
+    top: 22.5%;
+    cursor: pointer;
+}
 
-/* CSS */
+.info-room {
+    position: absolute;
+    left: 71%;
+    top: 52%;
+    cursor: pointer;
+}
+
+.info-name:hover .extra-info-name {
+    display: block !important;
+}
+
+.info-room:hover .extra-info-room {
+    display: block !important;
+}
+
+.extra-info-room {
+    position: absolute;
+    width: 100px;
+    display: none;
+    background: black;
+    color: red;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid #2196F3;
+}
+
+.extra-info-name {
+    position: absolute;
+    width: 100px;
+    display: none;
+    background: black;
+    color: red;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid #2196F3;
+}
+
+
+/* buttons design */
 
 .button-55 {
     align-self: center;
@@ -198,8 +268,9 @@ body {
     position: absolute;
     display: block;
     width: min(100% - 31px, 900px);
+    height: 2.5rem;
     text-align: center;
-    top: 170px;
+    top: 160px;
     text-align: center;
 }
 

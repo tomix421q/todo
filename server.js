@@ -20,9 +20,9 @@ const io = socket(server)
 const rooms = {}
 
 // SOCKET WORK 
-const trueArray = []
-const users = []
-const words = []
+var trueArray = []
+var users = []
+var words = []
 io.on("connection", (socket) => {
 
 
