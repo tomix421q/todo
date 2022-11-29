@@ -25,7 +25,12 @@ const words = [];
 
 io.on("connection", (socket) => {
 
+
     socket.on("login", (name, roomName) => {
+        words.length = 0
+        users.length = 0
+        console.log(`slova: ${words} a uzivatelov:${users}`)
+        trueArray.length = 0
         console.log("login", name, socket.id);
         socket.id === name;
         io.to(roomName).emit("new-login", name);
@@ -41,6 +46,7 @@ io.on("connection", (socket) => {
         //     sender: params.name,
 
         // });
+
 
         var word = params.message
         var meno = params.name

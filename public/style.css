@@ -2,10 +2,15 @@ body {
     background-image: url("https://assets.codepen.io/47791/colorful-smoke.jpg");
     font-family: 'Patrick Hand', cursive;
     font-size: 100%;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 .game-form {
     display: none;
+    overflow-y: hidden;
 }
 
 #preloader {
@@ -61,7 +66,7 @@ body {
     -webkit-backdrop-filter: blur(11.2px);
     border: 1px solid rgba(255, 255, 255, 0.07);
     margin: 10px auto 220px auto;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 20px;
 }
 
@@ -85,16 +90,18 @@ body {
 
 .info-name {
     position: absolute;
-    left: 71%;
-    top: 22.5%;
+    left: 78%;
+    top: 18%;
     cursor: pointer;
+    display: flex;
 }
 
 .info-room {
     position: absolute;
-    left: 71%;
-    top: 52%;
+    left: 78%;
+    top: 51.5%;
     cursor: pointer;
+    display: block;
 }
 
 .info-name:hover .extra-info-name {
@@ -276,12 +283,12 @@ body {
 }
 
 .send-input {
-    position: absolute;
+    position: relative;
     display: block;
-    width: min(100% - 31px, 900px);
+    width: min(100% - 11px, 900px);
     height: 2.5rem;
     text-align: center;
-    top: 160px;
+    top: 153px;
     text-align: center;
 }
 

@@ -58,8 +58,10 @@ sendWordBtn.addEventListener("click", () => {
         message: sendWordInput.value,
         name: nameInput.value
     });
+    sendWordBtn.value = ' ';
     sendWordBtn.disabled = true
     sendWordInput.disabled = true
+
     writeText('Cakam na odpoved dalsieho hraca...')
 });
 
