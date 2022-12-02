@@ -1,11 +1,17 @@
 body {
-    background-image: url("https://unsplash.it/1920/1080/?abstact");
+    background-image: url("./bckg/pexels-cátia-matos-1072179.jpg");
     font-family: 'Patrick Hand', cursive;
     font-size: 100%;
     width: 100%;
     background-size: cover;
     background-attachment: fixed;
     overflow-x: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url("./bckg/pexels-mnm-zameer-3308588.jpg");
+    }
 }
 
 .game-form {
