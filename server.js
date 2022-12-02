@@ -48,10 +48,9 @@ io.on("connection", (socket) => {
         // });
 
 
-        let word = params.message
-        let meno = params.name
-        words.push(word);
-        users.push(meno);
+        words.push(params.message);
+        users.push(params.message);
+
         if (words.length === 1) {
             socket.to(params.room).emit('result', `Hrac ${users[0]} uz odpovedal/a prosim zadaj slovo   `)
 
