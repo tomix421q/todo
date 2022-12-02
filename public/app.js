@@ -58,7 +58,7 @@ sendWordBtn.addEventListener("click", () => {
         message: sendWordInput.value,
         name: nameInput.value
     });
-    sendWordBtn.value = ' ';
+
     sendWordBtn.disabled = true
     sendWordInput.disabled = true
 
@@ -89,6 +89,7 @@ socket.on('result', (params) => {
     writeText(params)
     sendWordBtn.disabled = false;
     sendWordInput.disabled = false;
+    sendWordInput.value = "";
 })
 
 // FUNCTION MAKE LI & APPEND 

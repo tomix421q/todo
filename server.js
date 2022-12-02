@@ -27,8 +27,7 @@ io.on("connection", (socket) => {
 
 
     socket.on("login", (name, roomName) => {
-        words.length = 0
-        users.length = 0
+
         console.log(`slova: ${words} a uzivatelov:${users}`)
         trueArray.length = 0
         console.log("login", name, socket.id);
@@ -36,9 +35,11 @@ io.on("connection", (socket) => {
         io.to(roomName).emit("new-login", name);
         socket.join(roomName);
         io.to(socket.id).emit('joined-room', name);
-        // io.to(roomName).emit("private-message", `hello ${name}`);
-    });
+        socket.to(roomName).emit("result", 'Prebehol reset :o , pripojil sa dalsi hrac');
+        users.length = 0;
+        words.length = 0;
 
+    });
 
     socket.on("send-to", (params) => {
         // io.to(params.room).emit("private-message", {
