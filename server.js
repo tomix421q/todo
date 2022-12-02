@@ -40,13 +40,12 @@ io.on("connection", (socket) => {
 
     });
 
-    socket.on("send-to", (params) => {
+    socket.on("send-to", async(params) => {
         // io.to(params.room).emit("private-message", {
         //     message: params.message,
         //     sender: params.name,
 
         // });
-
 
         words.push(params.message);
         users.push(params.name);
@@ -57,11 +56,11 @@ io.on("connection", (socket) => {
         }
         if (words.length === 2) {
             if (words[0] === words[1]) {
-
                 io.to(params.room).emit('result', `${users[0]} odpoveda: ${words[0]} a ${users[1]} odpoveda: ${words[1]}  CORRECT!!!`);
                 words.length = 0
                 users.length = 0
             } else {
+
 
                 io.to(params.room).emit('result', `${users[0]} odpoveda: ${words[0]} a ${users[1]} odpoveda: ${words[1]}   NOPE!!!`);
                 words.length = 0
@@ -83,13 +82,6 @@ io.on("connection", (socket) => {
             console.log(trueArray)
         })
     });
-
-
-
-
-
-
-
 
 });
 

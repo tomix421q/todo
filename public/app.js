@@ -99,3 +99,8 @@ function writeText(messageText) {
     el.innerHTML = messageText
     chatUl.appendChild(el)
 }
+
+socket.on("disconnect", () => {
+    console.log(socket.connected); // false
+    console.log('bol si odpojeny')
+});

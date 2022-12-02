@@ -212,6 +212,10 @@ body {
     transform: rotate(0.5turn);
 }
 
+.colorWord {
+    color: red;
+}
+
 .chat-zone::-webkit-scrollbar {
     width: .2em;
 }
