@@ -28,16 +28,15 @@ io.on("connection", (socket) => {
 
     socket.on("login", (name, roomName) => {
 
-        console.log(`slova: ${words} a uzivatelov:${users}`)
-        trueArray.length = 0
         console.log("login", name, socket.id);
         socket.id === name;
         io.to(roomName).emit("new-login", name);
         socket.join(roomName);
         io.to(socket.id).emit('joined-room', name);
-        socket.to(roomName).emit("result", 'Prebehol reset :o , pripojil sa dalsi hrac');
+        io.to(roomName).emit("result", 'Prebehol reset :o , pripojil sa dalsi hrac');
         users.length = 0;
         words.length = 0;
+        trueArray.length = 0
 
     });
 
@@ -49,8 +48,8 @@ io.on("connection", (socket) => {
         // });
 
 
-        var word = params.message
-        var meno = params.name
+        let word = params.message
+        let meno = params.name
         words.push(word);
         users.push(meno);
         if (words.length === 1) {
@@ -70,9 +69,6 @@ io.on("connection", (socket) => {
                 users.length = 0
             }
         }
-
-        console.log(words);
-        console.log(params.room)
 
         socket.on('bothcorrect', (correct) => {
 
